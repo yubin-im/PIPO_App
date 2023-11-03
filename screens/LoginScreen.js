@@ -6,27 +6,26 @@ export default function LoginScreen({ navigation }) {
     const [password, setPassword] = useState('');
 
     const handleLogin = () => {
-        // 여기에서 실제 로그인 로직을 구현하세요.
-        // 예를 들어, 서버로 아이디와 비밀번호를 보내고 유효성을 확인하는 로직을 추가하세요.
+        // 여기에서 실제 로그인 로직을 구현
 
         // 로그인이 성공하면 대시보드 화면으로 이동합니다.
-        navigation.navigate('Dashboard');
+        navigation.navigate('Main');
     };
 
     const handleSignUp = () => {
-        // 회원가입 화면으로 이동합니다.
+        // 회원가입 화면으로 이동
         navigation.navigate('SignUp');
     };
 
     return (
         <View style={styles.container}>
-            <Text style={styles.label}>아이디:</Text>
+            <Text style={styles.label}>Email</Text>
             <TextInput
                 style={styles.input}
                 onChangeText={(text) => setUsername(text)}
                 value={username}
             />
-            <Text style={styles.label}>비밀번호:</Text>
+            <Text style={styles.label}>Password</Text>
             <TextInput
                 style={styles.input}
                 onChangeText={(text) => setPassword(text)}
@@ -37,10 +36,10 @@ export default function LoginScreen({ navigation }) {
                 style={styles.loginButton}
                 onPress={handleLogin}
             >
-                <Text style={styles.buttonText}>로그인</Text>
+                <Text style={styles.buttonText}>LOGIN</Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={handleSignUp}>
-                <Text style={styles.signupText}>계정이 없으신가요? 회원가입</Text>
+                <Text style={styles.signupText}>Don't have an account? SIGN UP</Text>
             </TouchableOpacity>
         </View>
     );
@@ -76,7 +75,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
     },
     buttonContainer: {
-        flexDirection: 'column', // 버튼을 세로로 배치합니다.
+        flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
         width: '100%',

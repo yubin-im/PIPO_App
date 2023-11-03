@@ -8,23 +8,22 @@ export default function SignUpScreen({ navigation }) {
     const [confirmPassword, setConfirmPassword] = useState('');
 
     const handleSignUp = () => {
-        // 여기에서 실제 회원가입 로직을 구현하세요.
-        // 예를 들어, 서버로 사용자 정보를 전송하고 회원가입을 처리하는 로직을 추가하세요.
+        // 여기에서 실제 회원가입 로직을 구현
 
-        // 회원가입이 성공하면 로그인 화면으로 이동합니다.
+        // 회원가입이 성공하면 로그인 화면으로 이동
         navigation.navigate('Login');
     };
 
     return (
         <View style={styles.container}>
-            <Text style={styles.label}>이름:</Text>
+            <Text style={styles.label}>Name</Text>
             <TextInput
                 style={styles.input}
                 onChangeText={(text) => setName(text)}
                 value={name}
             />
 
-            <Text style={styles.label}>이메일:</Text>
+            <Text style={styles.label}>Email</Text>
             <TextInput
                 style={styles.input}
                 onChangeText={(text) => setEmail(text)}
@@ -32,7 +31,7 @@ export default function SignUpScreen({ navigation }) {
                 keyboardType="email-address"
             />
 
-            <Text style={styles.label}>패스워드:</Text>
+            <Text style={styles.label}>Password</Text>
             <TextInput
                 style={styles.input}
                 onChangeText={(text) => setPassword(text)}
@@ -40,7 +39,7 @@ export default function SignUpScreen({ navigation }) {
                 secureTextEntry
             />
 
-            <Text style={styles.label}>패스워드 확인:</Text>
+            <Text style={styles.label}>Confirm Password</Text>
             <TextInput
                 style={styles.input}
                 onChangeText={(text) => setConfirmPassword(text)}
@@ -52,11 +51,11 @@ export default function SignUpScreen({ navigation }) {
                 style={styles.signupButton}
                 onPress={handleSignUp}
             >
-                <Text style={styles.buttonText}>회원가입</Text>
+                <Text style={styles.buttonText}>SIGN UP</Text>
             </TouchableOpacity>
 
             <Text style={styles.loginLink} onPress={() => navigation.navigate('Login')}>
-                이미 계정이 있으신가요? 로그인
+                Already have account? SIGN IN
             </Text>
         </View>
     );
