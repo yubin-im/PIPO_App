@@ -1,6 +1,8 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, ScrollView } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome'; // 터미널에서 npm install react-native-vector-icons --save 설치
+import { TouchableOpacity } from 'react-native';
 
 const images = [
   { 
@@ -26,13 +28,20 @@ const images = [
 ];
 
 const Main = () => {
+  const navigation = useNavigation();
+
+  const handleImagePress = (title) => {
+    // 'Detail' 화면으로 이동합니다.
+    navigation.navigate('Detail', { title });
+  };
+
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <Image source={require('./pipo_logo_top.jpg')} style={styles.logo} />
       <Text style={styles.heading}>현재 인기 있는 작품</Text>
       <View style={styles.imagesContainer}>
         {images.map((image, index) => (
-          <View key={index} style={styles.item}>
+          <TouchableOpacity key={index} style={styles.item} onPress={() => handleImagePress(image.title)}>
             <Image source={image.source} style={styles.image} />
             <View style={styles.titleContainer}>
               <Text style={styles.title}>{image.title}</Text>
@@ -41,7 +50,7 @@ const Main = () => {
                 <Text style={styles.likesText}>{image.likes}</Text>
               </View>
             </View>
-          </View>
+          </TouchableOpacity>
         ))}
       </View>
     </ScrollView>

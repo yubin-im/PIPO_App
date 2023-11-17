@@ -5,6 +5,7 @@ import LoginScreen from './screens/LoginScreen';
 import SignUpScreen from './screens/SignUpScreen';
 import Logo from './screens/Logo';
 import Main from './screens/Main';
+import Detail from './screens/Detail'
 
 const Stack = createStackNavigator();
 
@@ -31,6 +32,11 @@ export default function App() {
                     name="Main"
                     component={Main}
                     options={{ title: '메인' }}
+                />
+                <Stack.Screen
+                    name="Detail"
+                    component={Detail}
+                    options={{ title: '디테일' }}
                 />
             </Stack.Navigator>
         </NavigationContainer>
